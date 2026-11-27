@@ -16,20 +16,20 @@ npm run build
 npm run preview
 ```
 
-## Cloudflare Pages
+## Cloudflare
 
-En Cloudflare, abre Workers & Pages, crea un proyecto de Pages y conecta este repositorio de GitHub.
+Este repositorio está preparado para desplegarse como un Worker de Cloudflare con Wrangler.
 
 | Ajuste | Valor |
 | --- | --- |
 | Rama de producción | `main` |
 | Framework | React (Vite) |
 | Comando de compilación | `npm run build` |
-| Directorio de salida | `dist` |
-| Directorio raíz | Raíz del repositorio |
+| Comando de despliegue | `npx wrangler deploy` o `npm run deploy` |
+| Directorio de assets | `dist` |
 | Node.js | `22` (definido en `.node-version`) |
 
-Las actualizaciones de `main` se desplegarán desde la integración de Cloudflare. No se necesitan secretos ni variables de entorno para este frontend. `public/_redirects` permite abrir las rutas de las cápsulas directamente.
+La configuración de `wrangler.jsonc` usa `not_found_handling: "single-page-application"`, por lo que las rutas de React como `/c/demo-sellada` y `/c/demo-abierta` funcionan al abrirse directamente.
 
 ## Rutas
 
